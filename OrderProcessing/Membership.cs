@@ -6,34 +6,30 @@ using System.Threading.Tasks;
 
 namespace OrderProcessing
 {
-    public class Book: VirtualOrder,IOrder, ICommission
+    public class Membership : VirtualOrder, IOrder, IEmail
     {
         public string Name { get; set; }
         public string OrderID { get; set; }
         public int quantity { get; set; }
         public float price { get; set; }
-
         public void FetchOrders()
-        {            
-            this.Name = "Book";
-            this.OrderID = "B1";
-            this.price = 500;
-            this.quantity = 2;
-
-        }
-
-        public float GetCommission()
         {
-            return 2;
-
-        }
+            this.Name = "Membership";
+            this.OrderID = "M1";
+            this.price = 250;
+            this.quantity = 1;
+        }      
 
         public string ProcessOrders()
         {
-            float com = GetCommission();
             FetchOrders();
             PrintOrders(this);
-            return "Duplicate packing slip for the royalty department is generated and calculated commission as " + com+ " %";
+            return "Membership is activated and "+SendMail("Claire@contonso.com","Susan@abc.com") ;
+        }
+
+        public string SendMail(string From, string To)
+        {
+            return("Email is sent to "+ To+ "From "+From);
         }
     }
 }

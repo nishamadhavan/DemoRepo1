@@ -12,8 +12,7 @@ namespace OrderProcessing
         string OrderID { get; set; }
          int quantity { get; set; }
          float price { get; set; }
-        string ProcessOrders();
-        void PrintOrders();
+        string ProcessOrders();        
         void FetchOrders();
     }
 }

@@ -8,6 +8,6 @@ namespace OrderProcessing
 {
    public interface IEmail
     {
-        void SendMail(string From, string To);
+        string SendMail(string From, string To);
     }
 }
